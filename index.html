@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+        fetch("https://jsonplaceholder.typicode.com/users")
+        .then(response => response.json()) //creates the json string that we access below
+        .then(data =>{
+            console.log(data);
+
+            const users = data.map(user => { //we go through every user and return their id and name in a div.  this gets stored in the const users which gets put into the innerHTML of the paragraph with id of users
+                return `
+                <div>
+                    <h2>${user.id}</h2>
+                    <p>${user.name}</p>
+                    </div>
+                `
+            })
+            document.getElementById("users").innerHTML=users;
+        })
+
+        fetch("https://jsonplaceholder.typicode.com/photos")  //getting the data from the photos
+        .then(response => response.json())
+        .then(data =>{
+            console.log(data);
+
+            const images = data.map(img => { //we get the url from the json data and set that as the image source in our html page.  we then save that image in a const with other images and set the inngerHTML of another paragrpah to those imatges.
+                return `
+                    <img src=${img.url}> 
+                `
+            })
+            document.getElementById("images").innerHTML=images;
+        })
+
+    </script>
+</head>
+<body>
+    <p id="users"></p>
+    <p id="images"></p>
+</body>
+</html>
