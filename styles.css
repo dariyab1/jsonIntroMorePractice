@@ -1,0 +1,40 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;  
+}
+
+
+div#users{
+    margin: 4px, 4px;
+    padding: 4px;
+    width: 400px;
+    height: 800px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: justify;
+}
+div#posts{
+    margin: 4px, 4px;
+    padding: 4px;
+    width: 1500px;
+    height: 800px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: justify;
+}
+
+#usersBox, #postBox{
+    background-color:slategrey;
+}
+
+#users{
+    background-color:aliceblue ;
+    grid-column: span 1;
+}
+#posts{
+    background-color: azure;
+    grid-column: span 1;
+}
